@@ -1,4 +1,5 @@
 import express from 'express'
+import "reflect-metadata"
 
 class Application{
     app:express.Application;

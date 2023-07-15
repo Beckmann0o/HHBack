@@ -1,22 +1,30 @@
-import mongoose from "mongoose";
+import { createConnections, ConnectionOptions } from "typeorm";
 
 const connect = async () => {
   try {
-    const url = "mongodb+srv://healthhub:bWgXUBTijCdLNy0v@healthub-cluster.mgqxpnt.mongodb.net/?retryWrites=true&w=majority";
+    const connectionOptions: ConnectionOptions[] = [
+      {
+        type: "mongodb",
+        url: "mongodb+srv://healthhub:bWgXUBTijCdLNy0v@healthub-cluster.mgqxpnt.mongodb.net/?retryWrites=true&w=majority",
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+        synchronize: true,
+        logging: true,
+        entities: [
+          // Agrega aquí tus entidades
+        ],
+      },
+    ];
 
-    await mongoose.connect(url);
+    const connections = await createConnections(connectionOptions);
 
-    const db = mongoose.connection;
-    console.log("Conexión exitosa a MongoDB Atlas");
+    console.log("Conexiones exitosas a MongoDB Atlas");
 
-    // Verificar el estado de la conexión
-    console.log("Estado de la conexión:", db.readyState);
-    console.log("Base de datos conectada:", db.name);
+    // Realizar operaciones de base de datos utilizando TypeORM
+
   } catch (error) {
     console.error("Error al conectar a MongoDB Atlas", error);
   }
 };
 
-export default connect;  
-
-                                                                                                                                                                                                                                    
+export default connect;

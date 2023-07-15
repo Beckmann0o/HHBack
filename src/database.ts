@@ -1,8 +1,8 @@
-import { createConnections, ConnectionOptions } from "typeorm";
+import { createConnections, DataSourceOptions } from "typeorm";
 
 const connect = async () => {
   try {
-    const connectionOptions: ConnectionOptions[] = [
+    const connectionOptions: DataSourceOptions[] = [
       {
         type: "mongodb",
         url: "mongodb+srv://healthhub:bWgXUBTijCdLNy0v@healthub-cluster.mgqxpnt.mongodb.net/?retryWrites=true&w=majority",
@@ -23,7 +23,7 @@ const connect = async () => {
     // Realizar operaciones de base de datos utilizando TypeORM
 
   } catch (error) {
-    console.error("Error al conectar a MongoDB Atlas", error);
+    console.error("Error al conectar a MongoDB", error);
   }
 };
 

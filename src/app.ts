@@ -6,6 +6,7 @@ class Application{
 
     constructor(){
         this.app=express();
+        console.log("anda")
     }
 
     start(){

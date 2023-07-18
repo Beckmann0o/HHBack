@@ -1,18 +1,18 @@
-import express from 'express'
-import "reflect-metadata"
+import express from "express";
+import "reflect-metadata";
 
-class Application{
-    app:express.Application;
+class Application {
+  app: express.Application;
 
-    constructor(){
-        this.app=express();
-    }
+  constructor() {
+    this.app = express();
+  }
 
-    start(){
-        this.app.listen(3000, ()=>{
-            console.log("Escuchando puerto 3000")
-        })
-    }
+  start() {
+    this.app.listen(3000, () => {
+      console.log("Escuchando puerto 3000");
+    });
+  }
 }
 
-export default Application
+export default Application;

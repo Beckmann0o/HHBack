@@ -9,6 +9,8 @@ const UserSchemaLogin = z.object({
     .min(6, { message: "La contraseña debe ser mayor a  6 caracteres" }),
 });
 
+type UserTypeLogin = z.infer<typeof UserSchemaLogin>;
+
 const UserSchemaRegister = z
   .object({
     name: z.string({ required_error: "El nombre es obligatorio" }).min(3, {
@@ -23,6 +25,5 @@ const UserSchemaRegister = z
   .merge(UserSchemaLogin);
 
 type UserTypeRegister = z.infer<typeof UserSchemaRegister>;
-type UserTypeLogin = z.infer<typeof UserSchemaLogin>;
 
-export { UserSchemaRegister, UserTypeRegister, UserTypeLogin, UserSchemaLogin };
+export { UserSchemaLogin, UserTypeLogin, UserSchemaRegister, UserTypeRegister };

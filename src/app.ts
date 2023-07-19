@@ -1,5 +1,6 @@
 import express from "express";
 import "reflect-metadata";
+import "dotenv/config";
 import { UserRouter } from "./routes/user";
 import { DataSource } from "typeorm";
 import { AppDataSource } from "./db";
@@ -20,9 +21,9 @@ class Application {
       .catch((error) => console.error("No anduvo mi rey", error));
   }
 
-  start() {
-    this.app.listen(3000, () => {
-      console.log("Escuchando puerto 3000");
+  start(port: number) {
+    this.app.listen(port, () => {
+      console.log(`Escuchando puerto ${port}`);
     });
   }
 }

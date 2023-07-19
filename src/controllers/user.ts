@@ -84,5 +84,10 @@ export class UserController {
     }
 
     //jwt
+    return {
+      status: 200,
+      error: true,
+      data: "anashe",
+    };
   }
 }
